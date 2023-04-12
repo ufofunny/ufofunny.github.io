@@ -1,8 +1,87 @@
-const hamburger = document.querySelector('.hamburger'),
-    overlay = document.querySelector('.menu_overlay'),
-    menu = document.querySelector('.menu'),
-    closeElem = document.querySelector('.menu_close'),
-    menuLink = document.querySelectorAll('.menu_link');
+// const hamburger = document.querySelector('.hamburger'),
+//     overlay = document.querySelector('.menu_overlay'),
+//     menu = document.querySelector('.menu'),
+//     closeElem = document.querySelector('.menu_close'),
+//     menuLink = document.querySelectorAll('.menu_link');
+
+// hamburger.addEventListener('click', () => {
+//     menu.classList.add('active');
+// });
+
+// closeElem.addEventListener('click', () => {
+//     menu.classList.remove('active');
+// });
+
+// overlay.addEventListener('click', () => {
+//     menu.classList.remove('active');
+// });
+
+// menuLink.forEach(element => {
+//     element.addEventListener('click', () => {
+//         menu.classList.remove('active');
+//     });
+// });
+
+// const counters = document.querySelectorAll('.skills_ratings-counter'),
+//     section = document.querySelector('.skills_ratings'),
+//     lines = document.querySelectorAll('.skills_ratings-line span');
+
+// function showCounter() {
+//     counters.forEach((element, i) => {
+//         lines[i].style.opacity = 1;
+//         lines[i].style.width = element.innerHTML;
+//     });
+// }
+
+// function hideCounter() {
+//     counters.forEach((element, i) => {
+//         lines[i].style.opacity = 0;
+//         lines[i].style.width = 0;
+//     });
+// }
+
+// window.addEventListener('scroll', () => {
+//     const screenPosition = window.pageYOffset;
+
+//     if (screenPosition >= 3510 || screenPosition <= 2760) {
+//         hideCounter();
+//     } else {
+//         showCounter();
+//     }
+
+// });
+
+// // Слайдер для изображений;
+
+// const imageUrls = [
+//     'img/jpg/main_ph_1.jpg',
+//     'img/jpg/main_ph_2.jpg',
+//     'img/jpg/main_ph_3.jpg'
+//   ];
+
+//   function startImageSlider(imageUrls) {
+//     let currentIndex = 0;
+//     const sliderImages = document.querySelectorAll('.promo_slider img');
+
+//     setInterval(() => {
+//       currentIndex = (currentIndex + 1) % imageUrls.length;
+//       sliderImages.forEach((img, index) => {
+//         if (index === currentIndex) {
+//           img.style.display = 'block';
+//         } else {
+//           img.style.display = 'none';
+//         }
+//       });
+//     }, 1000); // меняем изображение каждые 5 секунд
+//   }
+
+//   startImageSlider(imageUrls);
+
+const hamburger = document.querySelector('.hamburger');
+const overlay = document.querySelector('.menu_overlay');
+const menu = document.querySelector('.menu');
+const closeElem = document.querySelector('.menu_close');
+const menuLinks = document.querySelectorAll('.menu_link');
 
 hamburger.addEventListener('click', () => {
     menu.classList.add('active');
@@ -16,25 +95,25 @@ overlay.addEventListener('click', () => {
     menu.classList.remove('active');
 });
 
-menuLink.forEach(element => {
-    element.addEventListener('click', () => {
+menuLinks.forEach(link => {
+    link.addEventListener('click', () => {
         menu.classList.remove('active');
     });
 });
 
-const counters = document.querySelectorAll('.skills_ratings-counter'),
-    section = document.querySelector('.skills_ratings'),
-    lines = document.querySelectorAll('.skills_ratings-line span');
+const counters = document.querySelectorAll('.skills_ratings-counter');
+const section = document.querySelector('.skills_ratings');
+const lines = document.querySelectorAll('.skills_ratings-line span');
 
 function showCounter() {
-    counters.forEach((element, i) => {
+    counters.forEach((counter, i) => {
         lines[i].style.opacity = 1;
-        lines[i].style.width = element.innerHTML;
+        lines[i].style.width = `${counter.innerHTML}%`;
     });
 }
 
 function hideCounter() {
-    counters.forEach((element, i) => {
+    counters.forEach((counter, i) => {
         lines[i].style.opacity = 0;
         lines[i].style.width = 0;
     });
@@ -48,32 +127,60 @@ window.addEventListener('scroll', () => {
     } else {
         showCounter();
     }
-
 });
 
-// Слайдер для изображений;
-
 const imageUrls = [
-    'img/jpg/main_ph_1.jpg',
-    'img/jpg/main_ph_2.jpg',
-    'img/jpg/main_ph_3.jpg'
-  ];
-  
-  function startImageSlider(imageUrls) {
-    let currentIndex = 0;
-    const sliderImages = document.querySelectorAll('.promo_slider img');
-  
-    setInterval(() => {
-      currentIndex = (currentIndex + 1) % imageUrls.length;
-      sliderImages.forEach((img, index) => {
-        if (index === currentIndex) {
-          img.style.display = 'block';
-        } else {
-          img.style.display = 'none';
-        }
-      });
-    }, 5000); // меняем изображение каждые 5 секунд
-  }
-  
-  startImageSlider(imageUrls);
-  
+    'img/slider/main_ph_1-transformed.png',
+    'img/slider/main_ph_2-transformed.png',
+    'img/slider/main_ph_3-transformed.png',
+    'img/slider/main_ph_4-transformed.png',
+    'img/slider/main_ph_5-transformed.png',
+    'img/slider/main_ph_6-transformed.png',
+    'img/slider/main_ph_7-transformed.png',
+];
+
+const linesUrls = [
+    'img/slider/lines/1.png',
+    "img/slider/lines/2.png",
+    "img/slider/lines/3.png",
+    "img/slider/lines/4.png",
+    "img/slider/lines/5.png",
+    "img/slider/lines/6.png",
+    "img/slider/lines/7.png",
+    "img/slider/lines/8.png"
+];
+
+function promoSlider(imageUrls, linesUrls) {
+    function imageSlider(imageUrls) {
+        let currentIndex = 0;
+        const sliderImages = document.querySelectorAll('.promo_slider_item img');
+
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % imageUrls.length;
+
+            sliderImages.forEach((image, index) => {
+                image.style.display = index === currentIndex ? 'block' : 'none';
+            });
+        }, 1000);
+    }
+
+    imageSlider(imageUrls);
+
+    function linesSlider(linesUrls) {
+        let currentIndex = 0;
+        const sliderLines = document.querySelectorAll('.promo_slider_lines img');
+
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % linesUrls.length;
+
+            sliderLines.forEach((image, index) => {
+                image.style.display = index === currentIndex ? 'block' : 'none';
+            });
+        }, 500);
+    }
+
+    linesSlider(linesUrls);
+}
+
+promoSlider(imageUrls, linesUrls);
+
