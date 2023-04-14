@@ -1,0 +1,17 @@
+@media (max-width: 768px) {
+
+    .menu {
+        &_block {
+            width: 250px;
+        }
+    }
+}
+
+@media (max-width: 576px) {
+
+    .menu {
+        &_block {
+            width: 250px;
+        }
+    }
+}

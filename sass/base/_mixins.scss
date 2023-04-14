@@ -1,3 +1,16 @@
+@mixin m_before_rectangle {
+    &:before {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        top: 0%;
+        left: 0;
+        width: 30px;
+        height: 30px;
+        background: $mixin-main-color;
+    }
+}
+
 @mixin before_rectangle {
     &:before {
         content: '';
@@ -7,7 +20,20 @@
         left: 0;
         width: 40px;
         height: 40px;
-        background: $main-color;
+        background: $mixin-main-color;
+    }
+}
+
+@mixin s_before_rectangle {
+    &:before {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        top: 0%;
+        left: 0;
+        width: 30px;
+        height: 30px;
+        background: $mixin-skills-color;
     }
 }
 

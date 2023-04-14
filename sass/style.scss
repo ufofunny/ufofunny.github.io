@@ -3,6 +3,7 @@
 
 @import 'base/variables';
 @import 'base/mixins';
+@import 'base/mixins-m';
 
 * {
     font-family: 'Space Grotesk', sans-serif;
@@ -31,3 +32,16 @@
 @import 'blocks/resume';
 @import 'blocks/skills';
 @import 'blocks/portfolio';
+@import 'blocks/contacts';
+
+// media-adaptation
+@import 'blocks/media/sidepanel-m';
+@import 'blocks/media/menu-m';
+@import 'blocks/media/promo-m';
+@import 'blocks/media/title-m';
+@import 'blocks/media/buttons-m';
+@import 'blocks/media/about-m';
+@import 'blocks/media/resume-m';
+@import 'blocks/media/skills-m';
+@import 'blocks/media/portfolio-m';
+@import 'blocks/media/contacts-m';

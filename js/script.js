@@ -80,16 +80,26 @@
 const hamburger = document.querySelector('.hamburger');
 const overlay = document.querySelector('.menu_overlay');
 const menu = document.querySelector('.menu');
-const closeElem = document.querySelector('.menu_close');
 const menuLinks = document.querySelectorAll('.menu_link');
 
-hamburger.addEventListener('click', () => {
-    menu.classList.add('active');
-});
+function showMenu () {
+    hamburger.addEventListener('click', function () {
+        if (menu.classList.contains('active')) {
+            menu.classList.remove('active')
+            hamburger.classList.remove('hamburger-active')
+        } else {
+            menu.classList.add('active')
+            hamburger.classList.add('hamburger-active')
+        }
+    })
+}
 
-closeElem.addEventListener('click', () => {
-    menu.classList.remove('active');
-});
+showMenu();
+
+// hamburger.addEventListener('click', function () {
+//     menu.classList.add('active');
+//     hamburger.classList.add('hamburger-active')
+// })
 
 overlay.addEventListener('click', () => {
     menu.classList.remove('active');
@@ -105,10 +115,11 @@ const counters = document.querySelectorAll('.skills_ratings-counter');
 const section = document.querySelector('.skills_ratings');
 const lines = document.querySelectorAll('.skills_ratings-line span');
 
+
 function showCounter() {
     counters.forEach((counter, i) => {
         lines[i].style.opacity = 1;
-        lines[i].style.width = `${counter.innerHTML}%`;
+        lines[i].style.width = counter.innerHTML;
     });
 }
 
@@ -141,13 +152,10 @@ const imageUrls = [
 
 const linesUrls = [
     'img/slider/lines/1.png',
-    "img/slider/lines/2.png",
-    "img/slider/lines/3.png",
-    "img/slider/lines/4.png",
-    "img/slider/lines/5.png",
-    "img/slider/lines/6.png",
-    "img/slider/lines/7.png",
-    "img/slider/lines/8.png"
+    "img/slider/lines/2.png"
+    // "img/slider/lines/3.png"
+    // "img/slider/lines/4.png",
+    // "img/slider/lines/5.png"
 ];
 
 function promoSlider(imageUrls, linesUrls) {
@@ -176,7 +184,7 @@ function promoSlider(imageUrls, linesUrls) {
             sliderLines.forEach((image, index) => {
                 image.style.display = index === currentIndex ? 'block' : 'none';
             });
-        }, 500);
+        }, 1000);
     }
 
     linesSlider(linesUrls);

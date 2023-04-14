@@ -1,10 +1,57 @@
 .promo {
     max-height: 100vh;
     position: relative;
-    // background: url('../img/main_bg.jpg') no-repeat 50%/cover;
     background: $m-background-color;
     padding-top: 205px;
     padding-bottom: 205px;
+
+    .hamburger {
+        position: absolute;
+        top: 20px;
+        left: 30px;
+        height: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        transform: translate();
+        cursor: pointer;
+        z-index: 25;
+        transition: all 0.6s;
+
+        &_item {
+            display: block;
+            width: 30px;
+            height: 4px;
+            background-color: $hamburher-icon-color;
+            transition: all 0.6s;
+        }
+
+        &.hamburger-active {
+
+            position: fixed;
+
+            .hamburger_item {
+                background-color: $hamburher-h-icon-color;
+            }
+
+            span:nth-child(1) {
+                transform: translate(6px, -1px) rotate(45deg);
+                transform-origin: left top;
+                transition: all 0.6s;
+            }
+
+            span:nth-child(2) {
+                transform: scale(0);
+                transition: all 0.6s;
+            }
+
+            span:nth-child(3) {
+                transform: translate(-3px, -18px) rotate(-45deg);
+                transform-origin: right bottom;
+                transition: all 0.6s;
+            }
+        }
+    }
 
     &_slider {
         left: 45%;
@@ -16,17 +63,34 @@
         // overflow: hidden;
         // animation: animate 5s linear infinite;
 
-        img {
-            max-width: 80%;
-            max-height: 80%;
+        &_item {
+            position: absolute;
+            left: 100px;
+            top: 80px;
+            max-width: 100%;
+            max-height: 100%;
         }
 
         &_lines {
             position: absolute;
             left: 100px;
-            top: 35px;
-            max-width: 500%;
-            max-height: 500%;
+            top: 120px;
+            max-width: 80%;
+            max-height: 80%;
+            color: black;
+            opacity: 0.9;
+
+            #lines_2 {
+                margin-top: -50px;
+                margin-left: -40px;
+                opacity: 0.8;
+            }
+
+            // #lines_3 {
+            //     margin-top: -80px;
+            //     margin-left: -120px;
+            //     opacity: 0.6;
+            // }
         }
 
         // @keyframes animate {
@@ -103,7 +167,7 @@
         padding-left: 10px;
         z-index: 2;
         color: $m-text-color;
-        @include before_rectangle;
+        @include m_before_rectangle;
     }
 
     &_btns {
