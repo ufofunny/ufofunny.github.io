@@ -78,11 +78,11 @@
 //   startImageSlider(imageUrls);
 
 const hamburger = document.querySelector('.hamburger');
-const overlay = document.querySelector('.menu_overlay');
+const overlay = document.querySelector('.menu__overlay');
 const menu = document.querySelector('.menu');
-const menuLinks = document.querySelectorAll('.menu_link');
+const menuLinks = document.querySelectorAll('.menu__link');
 
-function showMenu () {
+function showMenu() {
     hamburger.addEventListener('click', function () {
         if (menu.classList.contains('active')) {
             menu.classList.remove('active')
@@ -91,6 +91,26 @@ function showMenu () {
             menu.classList.add('active')
             hamburger.classList.add('hamburger-active')
         }
+    })
+    overlay.addEventListener('click', function () {
+        if (menu.classList.contains('active')) {
+            menu.classList.remove('active')
+            hamburger.classList.remove('hamburger-active')
+        } else {
+            menu.classList.add('active')
+            hamburger.classList.add('hamburger-active')
+        }
+    })
+    menuLinks.forEach(link => {
+        link.addEventListener('click', function () {
+            if (menu.classList.contains('active')) {
+                menu.classList.remove('active')
+                hamburger.classList.remove('hamburger-active')
+            } else {
+                menu.classList.add('active')
+                hamburger.classList.add('hamburger-active')
+            }
+        })
     })
 }
 
@@ -101,19 +121,19 @@ showMenu();
 //     hamburger.classList.add('hamburger-active')
 // })
 
-overlay.addEventListener('click', () => {
-    menu.classList.remove('active');
-});
+// overlay.addEventListener('click', () => {
+//     menu.classList.remove('active');
+// });
 
-menuLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        menu.classList.remove('active');
-    });
-});
+// menuLinks.forEach(link => {
+//     link.addEventListener('click', () => {
+//         menu.classList.remove('active');
+//     });
+// });
 
-const counters = document.querySelectorAll('.skills_ratings-counter');
-const section = document.querySelector('.skills_ratings');
-const lines = document.querySelectorAll('.skills_ratings-line span');
+const counters = document.querySelectorAll('.skills__ratings-counter');
+const section = document.querySelector('.skills__ratings');
+const lines = document.querySelectorAll('.skills__ratings-line span');
 
 
 function showCounter() {
@@ -161,7 +181,7 @@ const linesUrls = [
 function promoSlider(imageUrls, linesUrls) {
     function imageSlider(imageUrls) {
         let currentIndex = 0;
-        const sliderImages = document.querySelectorAll('.promo_slider_item img');
+        const sliderImages = document.querySelectorAll('.promo__slider_item img');
 
         setInterval(() => {
             currentIndex = (currentIndex + 1) % imageUrls.length;
@@ -176,7 +196,7 @@ function promoSlider(imageUrls, linesUrls) {
 
     function linesSlider(linesUrls) {
         let currentIndex = 0;
-        const sliderLines = document.querySelectorAll('.promo_slider_lines img');
+        const sliderLines = document.querySelectorAll('.promo__slider_lines img');
 
         setInterval(() => {
             currentIndex = (currentIndex + 1) % linesUrls.length;

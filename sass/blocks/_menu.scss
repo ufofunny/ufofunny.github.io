@@ -15,7 +15,7 @@
         opacity: 1;
     }
 
-    &_block {
+    &__block {
         position: relative;
         width: 345px;
         height: 100%;
@@ -26,13 +26,12 @@
         z-index: 10;
     }
 
-    &_list {
+    &__list {
         list-style-type: none;
         padding-left: 35px;
-
     }
 
-    &_link {
+    &__link {
         position: relative;
         font-weight: 700;
         font-size: 24px;
@@ -62,7 +61,7 @@
         }
     }
 
-    &_social {
+    &__social {
         position: absolute;
         bottom: 50px;
         left: 45%;
@@ -81,7 +80,7 @@
         }
     }
 
-    &_overlay {
+    &__overlay {
         position: fixed;
         top: 0;
         left: 0;
@@ -90,5 +89,74 @@
         background-color: $menu-overlay-color;
         opacity: 0.75;
 
+    }
+}
+
+// Адаптация этого блока;
+
+@media (max-width: 1295px) {
+
+    // .menu {
+    //     &_block {
+    //         width: 250px;
+    //         padding-left: 20px;
+    //     }
+    // }
+}
+
+@media (max-width: 992px) {
+    .menu {
+        nav {
+            position: relative;
+            top: 50%;
+            transform: translateY(-80%);
+        }
+    }
+}
+
+@media (max-width: 768px) { 
+    .menu {
+        nav {
+            position: relative;
+            top: 50%;
+            transform: translateY(-80%);
+        }
+    }
+}
+
+@media (max-width: 576px) {
+
+    .menu {
+        &__block {
+            padding-top: 0px;
+            width: 250px;
+            padding-left: 15px;
+        }
+
+        nav {
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        &__list {
+            padding-left: 30px;
+        }
+
+        &__link {
+            font-size: 20px;
+            line-height: 30px;
+            &:before {
+                top: 9px;
+                left: -25px;
+                width: 13px;
+                height: 13px;
+            }
+        }
+
+        &__social {
+            left: 115px;
+            bottom: 70px;
+        }
     }
 }

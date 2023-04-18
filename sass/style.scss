@@ -1,12 +1,11 @@
 @import 'libs/bootstrap-reboot.min';
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap');
 
 @import 'base/variables';
 @import 'base/mixins';
-@import 'base/mixins-m';
 
 * {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Rubik', sans-serif;
     margin: 0;
     padding: 0;
 }
@@ -19,8 +18,8 @@
 .divider {
     width: 60px;
     height: 3px;
-    background-color: $main-color;
-    margin: 25px auto 0 auto;
+    background-color: $mixin-main-color;
+    margin: 10px auto 0 auto;
 }
 
 @import 'blocks/promo';
@@ -34,14 +33,37 @@
 @import 'blocks/portfolio';
 @import 'blocks/contacts';
 
-// media-adaptation
-@import 'blocks/media/sidepanel-m';
-@import 'blocks/media/menu-m';
-@import 'blocks/media/promo-m';
-@import 'blocks/media/title-m';
-@import 'blocks/media/buttons-m';
-@import 'blocks/media/about-m';
-@import 'blocks/media/resume-m';
-@import 'blocks/media/skills-m';
-@import 'blocks/media/portfolio-m';
-@import 'blocks/media/contacts-m';
+// Адатация стилей в этом файле;
+
+@media (max-width: 1295px) {
+
+    .container {
+        max-width: 960px;
+    }
+    
+}
+
+@media (max-width: 992px) {
+
+    .container {
+        max-width: 720px;
+    }
+    
+}
+
+@media (max-width: 768px) {
+
+    .container {
+        max-width: 540px;
+    }
+    
+}
+
+@media (max-width: 576px) {
+
+    .container {
+        width: 100%;
+        padding: 0 15px;
+    }
+    
+}

@@ -1,51 +1,58 @@
 .resume {
     margin-top: 120px;
-    background-color: $background-skills;
+    background-color: $resume-main-color;
     padding: 0 0 30px 0;
 
-    &_title {
+    .divider {
+        background-color: $mixin-resume-color;
+    }
+
+    &__title {
         padding-top: 30px;
         position: relative;
         text-align: center;
         z-index: 2;
-        color: #fff;
-        @include before_rectangle_2;
+        color: $resume-text-color;
+        @include before_center_rectangle;
 
         &:before {
-            z-index: -1;
-            width: 20px;
-            height: 20px;
-            top: 32px;
-            left: 540px;
+            width: 15px;
+            height: 15px;
+            top: 33px;
+            left: 50%;
+            transform: translate(-50%);
+            background: $mixin-skills-color;
         }
     }
 
-    &_subtitle {
+    &__subtitle {
         text-align: center;
-        color: #fff;
+        color: $resume-text-color;
+
     }
 
-    &_wrapper {
+    &__wrapper {
         padding: 60px 65px 0 65px;
         display: grid;
         grid-template-columns: repeat(2, 425px);
         column-gap: 135px;
     }
 
-    &_column {
+    &__column {
+
         &-title {
             position: relative;
             padding-left: 35px;
-            color: #fff;
+            color: $resume-text-color;
 
             &:before {
                 content: '';
                 position: absolute;
                 width: 15px;
                 height: 15px;
-                background: #314455;
-                left: -6px;
-                top: 47%;
+                background: $mixin-resume-color;
+                left: -7px;
+                top: 50%;
                 transform: translateY(-50%);
             }
         }
@@ -63,13 +70,13 @@
                     position: absolute;
                     top: -16px;
                     left: 0;
-                    background-color: #fff;
+                    background-color: $mixin-resume-color;
                 }
             }
         }
     }
 
-    &_item {
+    &__item {
         position: relative;
 
         &:before {
@@ -78,7 +85,7 @@
             width: 45px;
             position: absolute;
             top: 68px;
-            background-color: #fff;
+            background-color: $mixin-resume-color;
         }
 
         &-head {
@@ -87,7 +94,7 @@
 
             h4 {
                 margin-bottom: 0;
-                color: #fff;
+                color: $resume-text-color;
             }
         }
 
@@ -100,26 +107,30 @@
             position: absolute;
             top: 50px;
             left: 45px;
-            @include before_rectangle_2;
+            @include before_item_rectangle;
 
             &:before {
                 z-index: 0;
                 width: 40px;
                 height: 40px;
+                background-color: $mixin-resume-color;
             }
 
             img {
                 position: absolute;
-                left: 5px;
+                left: -2px;
                 top: 5px;
-                filter: invert(100%); 
+                filter: invert(100%);
+
                 &#univer {
                     top: 4px;
                 }
+
                 &#self {
-                    left: 7px;
-                    top: 6px;
+                    left: 0px;
+                    top: 5px;
                 }
+
                 &#ba {
                     top: 8px;
                 }
@@ -137,6 +148,81 @@
             font-size: 12px;
             line-height: 18px;
             color: #fff;
+        }
+    }
+}
+
+@media (max-width: 1295px) {
+    .resume {
+        &__wrapper {
+            padding: 40px 20px 0 20px;
+            column-gap: 80px;
+        }
+    }
+}
+
+@media (max-width: 992px) { 
+    .resume {
+        &__wrapper {
+            column-gap: 60px;
+            grid-template-columns: repeat(2,320px);
+        }
+    }
+}
+
+
+@media (max-width: 768px) {
+
+    .resume {
+
+        &__wrapper {
+            grid-template-columns: 1fr;
+            column-gap: 60px;
+            row-gap: 40px;
+        }
+    }
+}
+
+@media (max-width: 576px) {
+
+    .resume {
+
+        &__column {
+
+            ul {
+
+                li {
+
+                    &:after {
+                        content: '';
+                        width: 2px;
+                        height: calc(100% + 16px);
+                        position: absolute;
+                        top: -16px;
+                        left: 0;
+                        background-color: $mixin-resume-color;
+                    }
+                }
+            }
+        }
+
+        &__item {
+
+            &-head {
+
+                padding: 48px 0 0 100px;
+
+                h4 {
+                    font-size: 16px;
+                    line-height: 21px;
+                }
+            }
+        }
+
+        &__wrapper {
+            padding: 60px 65px 0 15px;
+            grid-template-columns: repeat(1, 300px);
+            row-gap: 50px;
         }
     }
 }

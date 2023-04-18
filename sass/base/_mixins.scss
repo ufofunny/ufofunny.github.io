@@ -1,66 +1,41 @@
-@mixin m_before_rectangle {
+@mixin before_left_rectangle {
     &:before {
         content: '';
         position: absolute;
         z-index: -1;
-        top: 0%;
-        left: 0;
-        width: 30px;
-        height: 30px;
-        background: $mixin-main-color;
+        top: 3px;
+        left: 15px;
+        width: 20px;
+        height: 20px;
+        background: $mixin-left-color;
+        transform: translateX(-28%);
     }
 }
 
-@mixin before_rectangle {
+@mixin before_center_rectangle {
     &:before {
         content: '';
         position: absolute;
         z-index: -1;
-        top: 0%;
-        left: 0;
+        top: 5px;
+        left: 50px;
+        width: 20px;
+        height: 20px;
+        background: $mixin-center-color;
+        transform: translateX(-50%);
+    }
+}
+
+@mixin before_item_rectangle {
+    &:before {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        top: 1px;
+        left: 13px;
         width: 40px;
         height: 40px;
-        background: $mixin-main-color;
+        background: $mixin-item-color;
+        transform: translateX(-50%);
     }
 }
-
-@mixin s_before_rectangle {
-    &:before {
-        content: '';
-        position: absolute;
-        z-index: -1;
-        top: 0%;
-        left: 0;
-        width: 30px;
-        height: 30px;
-        background: $mixin-skills-color;
-    }
-}
-
-@mixin before_rectangle_2 {
-    &:before {
-        content: '';
-        position: absolute;
-        z-index: -1;
-        top: 0%;
-        left: 0;
-        width: 30px;
-        height: 30px;
-        background: #314455;
-    }
-}
-
-// @mixin before_circle {
-//     &:before {
-//         content: '';
-//         position: absolute;
-//         z-index: 0;
-//         top: -400px;
-//         left: 55%;
-//         width: 400px;
-//         height: 400px;
-//         background: #314455;
-//         border-radius: 100%;
-//         border: 2px solid #fff;
-//     }
-// }
